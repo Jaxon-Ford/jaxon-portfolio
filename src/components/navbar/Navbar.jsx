@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 import "./Navbar.css";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+  document.body.style.overflow = isOpen ? "hidden" : "auto";
+}, [isOpen]);
 
   return (
     <nav className="navbar">
